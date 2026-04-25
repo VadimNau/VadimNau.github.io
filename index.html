@@ -1,0 +1,520 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Liquid Housing - Projektleiter & Gründer</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Helvetica Neue', sans-serif;
+            background-color: #f5f5f5;
+            color: #333;
+            line-height: 1.6;
+        }
+
+        /* Header */
+        header {
+            background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
+            color: white;
+            padding: 0;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+        }
+
+        .header-bg {
+            height: 180px;
+            background: linear-gradient(135deg, #1e40af 0%, #0f172a 100%);
+        }
+
+        .profile-header {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+            display: flex;
+            align-items: flex-end;
+            gap: 30px;
+            padding-bottom: 20px;
+            position: relative;
+            top: -60px;
+        }
+
+        .profile-pic {
+            width: 140px;
+            height: 140px;
+            border-radius: 50%;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            border: 4px solid white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 48px;
+            flex-shrink: 0;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
+        }
+
+        .profile-info h1 {
+            font-size: 28px;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .profile-info p {
+            font-size: 16px;
+            margin-bottom: 3px;
+            opacity: 0.95;
+        }
+
+        .profile-info .location {
+            font-size: 14px;
+            opacity: 0.8;
+        }
+
+        /* Main Container */
+        .container {
+            max-width: 1200px;
+            margin: 30px auto;
+            padding: 0 20px;
+            display: grid;
+            grid-template-columns: 1fr 350px;
+            gap: 30px;
+        }
+
+        /* Main Content */
+        .main-content {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        /* Card Styling */
+        .card {
+            background: white;
+            border-radius: 8px;
+            padding: 24px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+        }
+
+        .card h2 {
+            font-size: 20px;
+            margin-bottom: 20px;
+            font-weight: 700;
+            padding-bottom: 15px;
+            border-bottom: 2px solid #f0f0f0;
+        }
+
+        .card h3 {
+            font-size: 16px;
+            font-weight: 700;
+            margin-bottom: 8px;
+            color: #0f172a;
+        }
+
+        .card p {
+            font-size: 14px;
+            color: #666;
+            margin-bottom: 12px;
+        }
+
+        /* About Section */
+        .about-content {
+            font-size: 15px;
+            line-height: 1.8;
+            color: #555;
+        }
+
+        /* Experience Section */
+        .experience-item {
+            padding-bottom: 20px;
+            margin-bottom: 20px;
+            border-bottom: 1px solid #f0f0f0;
+        }
+
+        .experience-item:last-child {
+            border-bottom: none;
+            padding-bottom: 0;
+            margin-bottom: 0;
+        }
+
+        .experience-header {
+            display: flex;
+            justify-content: space-between;
+            align-items: start;
+            margin-bottom: 8px;
+        }
+
+        .experience-title {
+            flex: 1;
+        }
+
+        .experience-time {
+            font-size: 13px;
+            color: #999;
+            white-space: nowrap;
+            margin-left: 20px;
+        }
+
+        .experience-subtitle {
+            font-size: 14px;
+            color: #666;
+            margin: 5px 0;
+        }
+
+        .experience-desc {
+            font-size: 14px;
+            color: #777;
+            margin-top: 8px;
+            line-height: 1.6;
+        }
+
+        /* Skills Section */
+        .skills-grid {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 15px;
+        }
+
+        .skill-item {
+            padding: 12px;
+            background: #f8f9fa;
+            border-radius: 6px;
+            border-left: 3px solid #1e40af;
+        }
+
+        .skill-item strong {
+            display: block;
+            margin-bottom: 5px;
+            color: #0f172a;
+        }
+
+        .skill-item span {
+            font-size: 13px;
+            color: #666;
+        }
+
+        /* Sidebar */
+        .sidebar {
+            display: flex;
+            flex-direction: column;
+            gap: 30px;
+        }
+
+        .sidebar-card {
+            background: white;
+            border-radius: 8px;
+            padding: 20px;
+            box-shadow: 0 2px 8px rgba(0,0,0,0.08);
+            border: 1px solid #e0e0e0;
+        }
+
+        .sidebar-card h3 {
+            font-size: 14px;
+            font-weight: 700;
+            margin-bottom: 15px;
+            text-transform: uppercase;
+            color: #666;
+            letter-spacing: 0.5px;
+        }
+
+        .social-links {
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+        }
+
+        .social-link {
+            display: inline-block;
+            padding: 10px 12px;
+            background: #f0f0f0;
+            border-radius: 6px;
+            text-decoration: none;
+            color: #1e40af;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.3s ease;
+            border: 1px solid #e0e0e0;
+        }
+
+        .social-link:hover {
+            background: #1e40af;
+            color: white;
+            border-color: #1e40af;
+        }
+
+        .badge {
+            display: inline-block;
+            padding: 6px 12px;
+            background: #e8f1ff;
+            color: #1e40af;
+            border-radius: 20px;
+            font-size: 12px;
+            font-weight: 600;
+            margin-right: 8px;
+            margin-bottom: 8px;
+        }
+
+        .button-group {
+            display: flex;
+            gap: 10px;
+        }
+
+        .btn {
+            flex: 1;
+            padding: 12px 20px;
+            border-radius: 6px;
+            border: none;
+            font-weight: 600;
+            font-size: 14px;
+            cursor: pointer;
+            transition: all 0.3s ease;
+            text-align: center;
+        }
+
+        .btn-primary {
+            background: #1e40af;
+            color: white;
+        }
+
+        .btn-primary:hover {
+            background: #1e3a8a;
+            box-shadow: 0 4px 12px rgba(30, 64, 175, 0.3);
+        }
+
+        .btn-secondary {
+            background: #f0f0f0;
+            color: #1e40af;
+            border: 1px solid #ddd;
+        }
+
+        .btn-secondary:hover {
+            background: #e8e8e8;
+        }
+
+        /* Responsive */
+        @media (max-width: 768px) {
+            .container {
+                grid-template-columns: 1fr;
+            }
+
+            .profile-header {
+                flex-direction: column;
+                align-items: center;
+                text-align: center;
+                top: -30px;
+            }
+
+            .profile-info h1 {
+                font-size: 24px;
+            }
+
+            .skills-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .experience-header {
+                flex-direction: column;
+            }
+
+            .experience-time {
+                margin-left: 0;
+                margin-top: 8px;
+            }
+        }
+
+        /* Footer */
+        footer {
+            background: #f0f0f0;
+            padding: 40px 20px;
+            text-align: center;
+            color: #666;
+            font-size: 13px;
+            margin-top: 50px;
+        }
+    </style>
+</head>
+<body>
+    <!-- Header -->
+    <header>
+        <div class="header-bg"></div>
+        <div class="profile-header">
+            <div class="profile-pic">🏠</div>
+            <div class="profile-info">
+                <h1>Liquid Housing Founder</h1>
+                <p>Projektleiter & Geschäftsführer bei LiquidSquare</p>
+                <p class="location">📍 Berlin, Deutschland</p>
+            </div>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <div class="container">
+        <div class="main-content">
+            <!-- About Section -->
+            <div class="card">
+                <h2>Über mich</h2>
+                <div class="about-content">
+                    <p>Projektleiter und Gründer des Liquid Housing-Ökosystems. Mein Fokus liegt auf der Schaffung gemeinnütziger, fairer Strukturen zur Unterstützung von VARIOHOME und seinen Mitgliedern. Das Ziel: Lebenskosten senken durch kooperative Wohnformen – nicht Reich werden.</p>
+                    <p style="margin-top: 15px;">Ich verfolge einen innovativen Ansatz zur Umgestaltung des Finanzierungssystems: Ein Sozialkredit-System, das universelle Grundversorgung (Mindestwasser, Mindestnahrung, Mindestwohnraum) sichert, basierend auf Commons-Modellen und transparenter Governance.</p>
+                </div>
+            </div>
+
+            <!-- Experience Section -->
+            <div class="card">
+                <h2>Erfahrung</h2>
+                
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Geschäftsführer & Projektleiter</h3>
+                            <div class="experience-subtitle">LiquidSquare GmbH</div>
+                        </div>
+                        <div class="experience-time">seit 2026</div>
+                    </div>
+                    <div class="experience-desc">
+                        Leitung des Liquid Housing-Ökosystems. Verantwortung für Governance-Struktur, Whitepaper-Entwicklung, Umsetzung von Dynamischer Budget-Überprüfung, Whistleblower-Plattform und Anti-Kollusions-Mechanismen.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <div class="experience-header">
+                        <div class="experience-title">
+                            <h3>Gründer</h3>
+                            <div class="experience-subtitle">Liquid Housing Ökosystem</div>
+                        </div>
+                        <div class="experience-time">seit 2025</div>
+                    </div>
+                    <div class="experience-desc">
+                        Konzeptualisierung und Implementierung eines innovativen Wohnungsfinanzierungs- und -verwaltungssystems mit Fokus auf Klimaresilienz, Mobilität und sichere Wohnformen in risikoreichen Regionen.
+                    </div>
+                </div>
+            </div>
+
+            <!-- Focus Areas Section -->
+            <div class="card">
+                <h2>Fokusgebiete & Kompetenzen</h2>
+                <div class="skills-grid">
+                    <div class="skill-item">
+                        <strong>Gemeinnützigkeit</strong>
+                        <span>Faire, nachhaltige Strukturen</span>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Klimaresilienz</strong>
+                        <span>Nachhaltige Wohnlösungen</span>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Kooperatives Wohnen</strong>
+                        <span>VARIOHOME & Genossenschaften</span>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Sozialkredit-Systeme</strong>
+                        <span>Commons & Open-Source Governance</span>
+                    </div>
+                    <div class="skill-item">
+                        <strong>Governance & Compliance</strong>
+                        <span>Audit, Datenschutz, Transparenz</span>
+                    </div>
+                    <div class="skill-item">
+                        <strong>EU-Regelwerke</strong>
+                        <span>EU Affordable Housing Plan 2026</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Key Projects Section -->
+            <div class="card">
+                <h2>Schlüsselprojekte</h2>
+                
+                <div class="experience-item">
+                    <h3>Whitepaper: Dynamische Budget-Überprüfung & Governance</h3>
+                    <p class="experience-subtitle">Liquid Housing Ökosystem</p>
+                    <div class="experience-desc">
+                        Entwicklung und Dokumentation von 6 neuen Unterkapiteln (3b.14–3b.19) zur Behandlung dynamischer Budgetüberprüfung, Whistleblower-Plattformen, Anti-Kollusions-Mechanismen, Audit-Prozessen und Datenschutz-Implementierung.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Regionale Resilienz-Genossenschaften</h3>
+                    <p class="experience-subtitle">Klimaresilienz Initiative</p>
+                    <div class="experience-desc">
+                        Konzeptualisierung separater, regionaler Genossenschaften in klimarisikobedrohten Gebieten zur Sicherung von Wohnraum und Migration, während der Kernpool vor Risiken geschützt bleibt.
+                    </div>
+                </div>
+
+                <div class="experience-item">
+                    <h3>Sozialkredit-System für Universelle Grundversorgung</h3>
+                    <p class="experience-subtitle">Finanzierungsinnovation</p>
+                    <div class="experience-desc">
+                        Umgestaltung des traditionellen Steuersystems durch ein innovatives Sozialkredit-Modell, das universelle Grundversorgung (Wasser, Nahrung, Wohnraum) auf Basis von Commons-Modellen und Open-Source-Standards sichert.
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Sidebar -->
+        <div class="sidebar">
+            <!-- Contact Card -->
+            <div class="sidebar-card">
+                <h3>Kontakt</h3>
+                <div class="button-group">
+                    <button class="btn btn-primary">Nachricht</button>
+                    <button class="btn btn-secondary">+ Folgen</button>
+                </div>
+            </div>
+
+            <!-- Location Card -->
+            <div class="sidebar-card">
+                <h3>Standort</h3>
+                <p style="font-size: 14px; margin-bottom: 15px;">Berlin, Deutschland</p>
+                <p style="font-size: 12px; color: #999;">Fokus auf EU-weite Regelungen und Affordable Housing Initiativen</p>
+            </div>
+
+            <!-- Expertise Card -->
+            <div class="sidebar-card">
+                <h3>Expertise</h3>
+                <div>
+                    <span class="badge">Gemeinnützigkeit</span>
+                    <span class="badge">Wohnungspolitik</span>
+                    <span class="badge">Klimaresilienz</span>
+                    <span class="badge">Governance</span>
+                    <span class="badge">Sozialkredit</span>
+                    <span class="badge">Open-Source</span>
+                </div>
+            </div>
+
+            <!-- Languages Card -->
+            <div class="sidebar-card">
+                <h3>Sprachen</h3>
+                <p style="font-size: 14px; margin-bottom: 10px;">🇩🇪 Deutsch</p>
+                <p style="font-size: 14px;">🇬🇧 English</p>
+            </div>
+
+            <!-- Social Links Card -->
+            <div class="sidebar-card">
+                <h3>Links</h3>
+                <div class="social-links">
+                    <a href="#" class="social-link">🔗 LinkedIn</a>
+                    <a href="#" class="social-link">💻 GitHub</a>
+                    <a href="#" class="social-link">🌐 Website</a>
+                    <a href="#" class="social-link">📧 Email</a>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- Footer -->
+    <footer>
+        <p>&copy; 2026 Liquid Housing Ökosystem. Alle Rechte vorbehalten.</p>
+        <p style="margin-top: 10px; font-size: 12px;">
+            <a href="#" style="color: #1e40af; text-decoration: none;">Datenschutz</a> | 
+            <a href="#" style="color: #1e40af; text-decoration: none;">Impressum</a> | 
+            <a href="#" style="color: #1e40af; text-decoration: none;">Kontakt</a>
+        </p>
+    </footer>
+
+</body>
+</html>
